@@ -1,16 +1,21 @@
 // Name: Awni AlQuraini
 // Date: 09/30/2026
-// Title: Lab 2 - Step 1
-// Description: The C file that showcases forking and its functionality
+// Title: Lab 2 - Step 3
+// Description: The C file that showcases forking and its functionality now with a custom delay set by the user.
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h> 
 #include <errno.h>
 
-int main(){
+int main(int argc, char *argv[]){
+	if(argc != 2){
+		printf("Usage: %s <delay time in microseconds> \n", argv[0]);
+		exit(0);
+	}
+
 	pid_t pid;
-	int n = 3000; //delay in microseconds to showcase cpu scheduling
+	int n = atoi(argv[1]); //delay in microseconds to showcase cpu scheduling
 	printf("\n Before forking... \n");
 	pid = fork();
 	
