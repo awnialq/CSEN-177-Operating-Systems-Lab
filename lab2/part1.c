@@ -23,7 +23,6 @@ int main(){
 			printf("\t\t\tI am the parent process displaying iteration: %d\n", i);
 			usleep(n);
 		}
-		wait();
 	}
 	else{
 		for(int i = 0; i < 10; ++i){
