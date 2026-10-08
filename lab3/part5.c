@@ -9,7 +9,6 @@
 #include <sys/wait.h>
 int main(int argc,char *argv[]){
     int fds[2];
-    char buff[60];
     int count;
     int i;
     pipe(fds);
