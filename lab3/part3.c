@@ -1,7 +1,7 @@
 // Name: Awni AlQuraini
 // Date: 10/7/2026
-// Title: Lab 3 - Part 2
-// Description: A file that showcases pipes for interprocess communication for internal programs (not anything provided or installed by the OS)
+// Title: Lab 3 - Part 3
+// Description: A program that takes the output of ls and prints it out character by character.
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -10,16 +10,15 @@
 // main
 int main(int argc,char *argv[]){
     int fds[2];
-    char buff[1];
+    char buff[60];
     int count;
     int i;
     pipe(fds);
     if (fork()==0){
-        printf("\nWriter on the upstream end of the pipe -> %d arguments \n",argc);
-        close(fds[0]);
-        for(i=0;i<argc;i++){
-            write(fds[1],argv[i],strlen(argv[i]));
-        }
+        printf("\nWriter (ls program) on the upstream end of the pipe -> %d arguments \n",argc);
+        dup2(fds[1], 1);
+		close(fds[0]);
+		execlp("ls", "ls", 0);
         exit(0);
     }
     else if(fork()==0){
