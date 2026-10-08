@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <sys/shm.h>
 #include <sys/types.h>
+#include <stdbool.h>
 
 struct data {
     bool read;
@@ -31,7 +32,7 @@ int main(int argc,char *argv[]){
             ctrl->read = false;
             ctrl->num = i; 
         }
-        shmdt(ctrl);
+        shmdt((void *)ctrl);
         exit(0);
     }
     else if(fork()==0){
@@ -43,7 +44,7 @@ int main(int argc,char *argv[]){
             printf("Recieved %d...\n", ctrl->num);
             ctrl->read = true;
         }
-        shmdt(ctrl);
+        shmdt((void *)ctrl);
         exit(0);
     }
     else{

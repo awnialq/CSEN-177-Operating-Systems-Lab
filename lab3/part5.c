@@ -13,7 +13,7 @@ int main(int argc,char *argv[]){
     int i;
     pipe(fds);
     if (fork()==0){
-        printf("Producer sending messages to the consumer...\n",argc);
+        printf("Producer sending messages to the consumer...\n");
         close(fds[0]);
         for(i=1;i<11;i++){
             write(fds[1], &i, sizeof(i));
