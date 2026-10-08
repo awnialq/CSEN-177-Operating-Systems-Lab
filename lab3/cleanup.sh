@@ -1,2 +1,2 @@
 #!/bin/bash
-rm part1 part2
+rm part1 part2 part3 part4 part5 part6
