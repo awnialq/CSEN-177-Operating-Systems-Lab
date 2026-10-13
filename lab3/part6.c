@@ -26,7 +26,7 @@ int main(int argc,char *argv[]){
         ctrl->read = true;
         for(i=1;i<11;++i){
             while(!ctrl->read){
-                usleep(500000);
+                //usleep(500000);
             }
             printf("Sent %d...\n", i); 
             ctrl->read = false;
@@ -39,7 +39,7 @@ int main(int argc,char *argv[]){
         ctrl = shmat(id, 0, 0);
         for(i = 0; i < 10; ++i){
             while(ctrl->read){
-                usleep(500000);
+                //usleep(500000);
             }
             printf("Recieved %d...\n", ctrl->num);
             ctrl->read = true;
