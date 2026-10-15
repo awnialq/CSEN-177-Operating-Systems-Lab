@@ -7,7 +7,7 @@
 #include <pthread.h>
 #include <time.h>
 
-double **matA, **matB, **matC; //A, B, C matricies are global
+double **matA, **matB, **matC;
 int n, m, l;
 
 double **allocMat(int r, int c){

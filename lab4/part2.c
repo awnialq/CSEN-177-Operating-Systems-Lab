@@ -11,7 +11,7 @@ void *go(void *);
 pthread_t threads[NTHREADS];
 
 int main() {
-    int i; 
+    int i;
     for (i = 0; i < NTHREADS; i++)  
         pthread_create(&threads[i], NULL, go, (void *) i);
     for (i = 0; i < NTHREADS; i++) {
