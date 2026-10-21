@@ -1,4 +1,7 @@
-//Thread Synchronization - Semaphores
+// Name: Awni AlQuraini
+// Date: 10/21/2026
+// Title: Lab 5 - Part 2
+// Description: Thread synchronization using pthread_mutex_locks
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

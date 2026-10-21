@@ -1,4 +1,8 @@
-//Thread Synchronization - Semaphores
+// Name: Awni AlQuraini
+// Date: 10/21/2026
+// Title: Lab 5 - Part 1
+// Description: Thread synchronization using a binary semaphore
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
