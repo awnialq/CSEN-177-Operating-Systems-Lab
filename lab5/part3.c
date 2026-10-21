@@ -47,7 +47,7 @@ int main() {
 }
 
 void *produce(void *arg) {
-    int i = 0;
+    int i = 1;
     while(1){
         if(i != 0) { sleep(1); }
         printf("Producer attempting to produce... (if hangs buffer is full)\n");
