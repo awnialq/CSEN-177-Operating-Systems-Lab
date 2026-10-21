@@ -37,7 +37,7 @@ void *initMat(double **mat, int r, int c){
     }
     for(int i = 0; i < r; i++){
         for(int j = 0; j < c; j++){
-            mat[i][j] = rand() % 5;
+            mat[i][j] = rand();
         }
     }
     return NULL;
