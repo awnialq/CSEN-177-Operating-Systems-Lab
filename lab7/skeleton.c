@@ -10,6 +10,10 @@ typedef struct {//to
 
 
 int main(int argc, char *argv[]){
+    if(argc < 2){
+        printf("Usage: %s <cache size>\n", argv[0]);
+        return 0;
+    }
 	int C_SIZE = atoi(argv[1]); // Size of Cache passed by user 
     ref_page cache[C_SIZE]; // Cache that stores pages 
     char pageCache[100]; // Cache that holds the input from test file
@@ -17,13 +21,12 @@ int main(int argc, char *argv[]){
     int i;
     int totalFaults = 0; // keeps track of the total page faults
     
-    for (i = 0; i < CACHE_SIZE; i++){//initialise cache array  
+    for (i = 0; i < C_SIZE; i++){//initialise cache array  
          cache[i].pageno = -1;
     }
 
     while (fgets(pageCache, 100, stdin)){
     	int page_num = atoi(pageCache); // Stores number read from file as an int
-
     	/*
 
 		
@@ -33,7 +36,7 @@ int main(int argc, char *argv[]){
     	*/
     }
 
-    printf("%d Total Page Faults", faultno);
+    printf("%d Total Page Faults\n", totalFaults);
     return 0;
 
 
