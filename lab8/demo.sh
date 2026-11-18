@@ -7,14 +7,16 @@ echo "----------Running Steps----------"
 echo "Step 2"
 for file in file1.txt file2.txt file3.txt file4.txt
 do
-    /usr/bin/time -f "step2 $file %e" ./step2 $file
+    TIMEFORMAT="step2 $file %R"
+    time ./step2 $file > /dev/null
 done
 echo "Step 3"
 for file in file1.txt file2.txt file3.txt file4.txt
 do
     for buffer in 100 1000 10000 100000
     do
-        /usr/bin/time -f "step3 $file $buffer %e" ./step3 $file $buffer
+        TIMEFORMAT="step3 $file $buffer %R"
+        time ./step3 $file $buffer > /dev/null
     done
 done
 echo "Step 4"
@@ -22,7 +24,8 @@ for file in file1.txt file2.txt file3.txt file4.txt
 do
     for buffer in 100 1000 10000 100000
     do
-        /usr/bin/time -f "step4 $file $buffer %e" ./step4 $file $buffer
+        TIMEFORMAT="step4 $file $buffer %R"
+        time ./step4 $file $buffer > /dev/null
     done
 done
 echo "Step 5"
@@ -32,8 +35,10 @@ do
     do
         for thread in 2 8 32 64
         do
-            /usr/bin/time -f "step5 $file $buffer $thread %e" ./step5 $file $buffer $thread
+            TIMEFORMAT="step5 $file $buffer $thread %R"
+            time ./step5 $file $buffer $thread > /dev/null
         done
     done
 done
+echo "----------Cleaning Up----------"
 make clean
